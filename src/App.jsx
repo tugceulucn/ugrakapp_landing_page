@@ -6,26 +6,65 @@ const benefits = [
   "Kâğıt kartlar unutulur. Dijital puan sistemi ile müşterin seni hatırlar.",
   "Kampanya duyurularını otomatik ilet. Happy hour hatırlatmalarını yap.",
   "Müşteri takibi yapılmazsa geri dönüş düşer. Otomatik geri dönüş teşviki.",
-  "Sadakat arttıkça sepet ortalaması büyür. Puan sistemi ile ödüllendir.",
+  "Sadakat arttıkça seket ortalaması büyür. Puan sistemi ile ödüllendir.",
   "İşletme paneli ile tek yerden takip. Masa, kampanya ve personel yönetimi."
+];
+
+const aiGalleryItems = [
+  {
+    title: "Product Lifestyle",
+    src: "/images/ai_images1.jpg",
+  },
+  {
+    title: "Animated Ad Creative",
+    src: "/images/ai_images2.jpg",
+  },
+  {
+    title: "Mockup Shot",
+    src: "/images/ai_images3.jpg",
+  },
+  {
+    title: "AI Motion Visual",
+    src: "/images/ai_images4.jpg",
+  },
+  {
+    title: "Social Carousel",
+    src: "/images/ai_images5.jpg",
+  },
+  {
+    title: "Loop Story Format",
+    src: "/images/ai_images6.jpg",
+  },
+  {
+    title: "Hero Banner",
+    src: "/images/ai_images7.jpg",
+  },
+  {
+    title: "UGC Style Clip",
+    src: "/images/ai_images8.jpg",
+  },
 ];
 
 const whyCards = [
   {
-    title: "Anlık kampanya yönetimi",
-    text: "Happy hour ve özel gün kampanyalarını dakikalar içinde oluştur, dilediğinde durdur."
+    step: 1,
+    title: "Kampanyanı ayarla",
+    text: "Saat, indirim oranı ve hedef kitleni seç. Uğrak, happy hour kampanyanı saniyeler içinde yayına alır."
   },
   {
-    title: "Dijital puan & sadakat",
-    text: "Müşterilerine QR ile puan ver, tekrar gelişleri ve sepet tutarlarını artır."
+    step: 2,
+    title: "Puan sistemini başlat",
+    text: "Müşterilerin QR okutarak puan toplasın. Sen de tekrar gelişleri ve sepet tutarlarını panelden izle."
   },
   {
-    title: "İşletme paneli",
-    text: "Tüm lokasyonlarını tek panelden yönet; doluluk oranı, ciro ve kampanya performansını izle."
+    step: 3,
+    title: "Müşterinle temas et",
+    text: "Sadakat verilerine göre otomatik hatırlatma, doğum günü mesajı ve özel davetler gönder."
   },
   {
-    title: "Sosyal medya entegrasyonu",
-    text: "Kampanyalarını sosyal medyada otomatik paylaş, görünürlüğünü artır."
+    step: 4,
+    title: "Performansı ölç & büyüt",
+    text: "Hangi kampanya ne kadar çalışmış, hangi saat aralığı daha verimli, hepsini grafiklerle gör ve optimizasyon yap."
   }
 ];
 
@@ -126,10 +165,10 @@ function App() {
     <div className="app">
       {/* NAVBAR */}
       <header className="top-nav">
-        <div className="container nav-inner">
+        <div className="container nav-inner animate-fade-down">
           <div className="logo">
             <span className="logo-mark">hl</span>
-            <span className="logo-text">Uğrak</span>
+            <span className="logo-text">hourloop</span>
           </div>
 
           <nav className="nav-links">
@@ -151,7 +190,7 @@ function App() {
         {/* HERO */}
         <section className="hero">
           <div className="container hero-grid">
-            <div className="hero-left">
+            <div className="hero-left animate-fade-up">
               <h1>
                 Happy hour kampanyaları + dijital puan sistemi + işletme paneli.
                 <span className="hero-highlight">
@@ -176,11 +215,18 @@ function App() {
               </p>
             </div>
 
-            <div className="hero-right">
+            <div className="hero-right animate-fade-up delay-1">
               <div className="hero-card">
-                <div className="hero-graph" />
-                <div className="hero-tag hero-tag-top">Happy Hour</div>
-                <div className="hero-tag hero-tag-right">Loyalty</div>
+                <div className="hero-illustration">
+                  <img
+                    src="/images/ugrak-hero.jpg"
+                    alt="Uğrak dashboard"
+                  />
+                  <div className="hero-graph-line" />
+                </div>
+
+                <div className="hero-tag hero-tag-top">Happy Hour Boost</div>
+                <div className="hero-tag hero-tag-right">Loyalty Points</div>
 
                 <div className="hero-floating-card">
                   <p className="hero-floating-label">Toplam Kazanç</p>
@@ -197,15 +243,47 @@ function App() {
           </div>
         </section>
 
-        {/* NEDEN UĞRAK */}
+        {/* NEDEN UĞRAK? */}
         <section className="section">
-          <div className="container">
-            <h2 className="section-title">Neden Uğrak?</h2>
+          <div className="container animate-fade-up">
+            <h2 className="section-title center">Neden Uğrak?</h2>
+            <p className="section-subtitle center-sub">
+              İşletmeyi uğrak bir mekâna dönüştürmek için tasarlanmış net bir
+              akış. Saatleri sen seç, geri kalanını Uğrak halletsin.
+            </p>
             <div className="why-grid">
               {whyCards.map((item) => (
                 <div key={item.title} className="why-card">
+                  <div className="why-step-circle">{item.step}</div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* AI GALLERY */}
+        <section className="section section-gallery">
+          <div className="container animate-fade-up">
+            <div className="gallery-header">
+              <h2 className="section-title center">
+                Yapay zeka ile işletmen için en iyi görselleri üret
+              </h2>
+              <p className="section-subtitle center-sub">
+                1000+ üretilmiş görsel ve loop videodan küçük bir seçki.
+                Aşağıda image + gif + image + gif şeklinde örnek içerikler yer alıyor.
+              </p>
+              <div className="gallery-underline" />
+            </div>
+
+            <div className="gallery-grid">
+              {aiGalleryItems.map((item) => (
+                <div key={item.title} className="ai-card">
+                  <div className="ai-card-inner">
+                    <img src={item.src} alt={item.title} />
+                    <div className="ai-card-label">{item.title}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -215,7 +293,7 @@ function App() {
         {/* FAYDA + GÖRSEL */}
         <section className="section section-muted">
           <div className="container benefit-grid">
-            <div>
+            <div className="animate-fade-up">
               <h2 className="section-title">
                 İşletmenize sağlayacağı 5 fayda
               </h2>
@@ -228,8 +306,10 @@ function App() {
                 ))}
               </ul>
             </div>
-            <div className="benefit-visual">
-              <div className="benefit-photo" />
+            <div className="benefit-visual animate-fade-up delay-1">
+              <div className="benefit-photo">
+                <img src="/images/images1.jpg" alt="Happy hour visual" />
+              </div>
               <div className="benefit-label-card">
                 <span className="avatar-circle">A</span>
                 <div>
@@ -245,7 +325,7 @@ function App() {
 
         {/* FEATURES */}
         <section className="section">
-          <div className="container">
+          <div className="container animate-fade-up">
             <div className="features-header">
               <div>
                 <h2 className="section-title">Our Features you can get</h2>
@@ -258,8 +338,11 @@ function App() {
             </div>
 
             <div className="features-grid">
-              {featureCards.map((f) => (
-                <article key={f.title} className="feature-card">
+              {featureCards.map((f, idx) => (
+                <article
+                  key={f.title}
+                  className={`feature-card animate-fade-up delay-${idx}`}
+                >
                   <div className="feature-illustration" />
                   <h3>{f.title}</h3>
                   <p>{f.text}</p>
@@ -272,7 +355,7 @@ function App() {
         {/* PRICING */}
         <section className="section section-muted">
           <div className="container">
-            <div className="pricing-header">
+            <div className="pricing-header animate-fade-up">
               <h2 className="section-title">Choose Plan That’s Right For You</h2>
               <p className="section-subtitle">
                 İşletmenin büyüklüğüne ve ihtiyacına göre en uygun paketi
@@ -281,7 +364,7 @@ function App() {
               </p>
             </div>
 
-            <div className="billing-toggle">
+            <div className="billing-toggle animate-fade-up delay-1">
               <button
                 className={
                   billing === "monthly" ? "toggle-btn active" : "toggle-btn"
@@ -302,14 +385,18 @@ function App() {
             </div>
 
             <div className="pricing-grid">
-              {pricingPlans.map((plan) => (
+              {pricingPlans.map((plan, idx) => (
                 <div
                   key={plan.id}
                   className={
-                    "pricing-card" +
+                    "pricing-card animate-fade-up delay-" +
+                    (idx + 1) +
                     (plan.popular ? " pricing-card-popular" : "")
                   }
                 >
+                  <div className="pricing-ribbon-wrapper">
+                    {plan.popular && <span className="pricing-ribbon">Most Popular</span>}
+                  </div>
                   <p className="pricing-name">{plan.name}</p>
                   <p className="pricing-price">
                     {formatPrice(plan)}
@@ -345,7 +432,7 @@ function App() {
         {/* SUPPORT / METRICS */}
         <section className="section">
           <div className="container support-grid">
-            <div>
+            <div className="animate-fade-up">
               <h2 className="section-title">
                 How we support our partners all over the world
               </h2>
@@ -367,7 +454,7 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="support-cols">
+            <div className="support-cols animate-fade-up delay-1">
               {supportColumns.map((col) => (
                 <div key={col.title} className="support-card">
                   <h3>{col.title}</h3>
@@ -381,8 +468,8 @@ function App() {
         {/* TESTIMONIAL + CONTACT DARK BLOCK */}
         <section className="section section-dark">
           <div className="container dark-grid">
-            <div className="dark-left">
-              <h2>People are saying about Uğrak</h2>
+            <div className="dark-left animate-fade-up">
+              <h2>People are saying about Hourloop</h2>
               <p className="dark-subtitle">
                 İşletme sahiplerinin günlük operasyonlarını basitleştirmek ve
                 gelirlerini artırmak için buradayız. Kullanıcılarımız ne diyor?
@@ -399,7 +486,7 @@ function App() {
               </div>
             </div>
 
-            <div className="dark-right">
+            <div className="dark-right animate-fade-up delay-1">
               <h3>Get Started</h3>
               <p className="dark-form-subtitle">
                 E-posta bırak, ekibimiz işletmen için kısa bir demo planlasın.
@@ -432,7 +519,7 @@ function App() {
           <div className="footer-left">
             <div className="logo">
               <span className="logo-mark">hl</span>
-              <span className="logo-text">Uğrak</span>
+              <span className="logo-text">hourloop</span>
             </div>
             <p className="footer-text">
               Happy hour kampanyaları ve dijital sadakat çözümlerini
@@ -462,7 +549,9 @@ function App() {
         </div>
         <div className="footer-bottom">
           <div className="container footer-bottom-inner">
-            <span>© {new Date().getFullYear()} Uğrak Inc. All rights reserved.</span>
+            <span>
+              © {new Date().getFullYear()} Hourloop Inc. All rights reserved.
+            </span>
             <div className="footer-links">
               <a href="#">Terms & Conditions</a>
               <a href="#">Privacy Policy</a>
